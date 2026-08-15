@@ -1,0 +1,54 @@
+:root {
+	--font-title: 'Libre Baskerville', serif;
+	--font-text: 'Manrope', sans-serif;
+	--font-extra: 'DM Sans', sans-serif;
+
+	--color-creme: #efddce;
+	--color-light-green: #c8cbae;
+	--color-grey: #9c9a98;
+	--color-dark-green: #3f503a;
+	--color-dark-brown: #341f11;
+	--color-black: #000000;
+}
+
+*,
+*::before,
+*::after {
+	box-sizing: border-box;
+}
+
+html,
+body {
+	margin: 0;
+	padding: 0;
+}
+
+body {
+	background: var(--color-creme);
+	color: var(--color-dark-brown);
+	font-family: var(--font-text);
+	line-height: 1.6;
+}
+
+h1,
+h2,
+h3,
+h4 {
+	font-family: var(--font-title);
+	color: var(--color-dark-brown);
+	line-height: 1.2;
+	margin: 0 0 0.5em;
+}
+
+p {
+	margin: 0 0 1em;
+}
+
+a {
+	color: var(--color-dark-green);
+}
+
+img {
+	max-width: 100%;
+	display: block;
+}
