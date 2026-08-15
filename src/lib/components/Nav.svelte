@@ -14,8 +14,6 @@
 
 <header class="nav">
 	<div class="nav-inner">
-		<a class="brand" href="/">Quinta Travancinha</a>
-
 		<button
 			class="menu-toggle"
 			aria-expanded={open}
@@ -48,23 +46,17 @@
 	.nav-inner {
 		display: flex;
 		align-items: center;
-		justify-content: space-between;
-		max-width: 1200px;
+		justify-content: flex-end;
+		max-width: 1400px;
 		margin: 0 auto;
-		padding: 1.75rem 2rem;
-	}
-
-	.brand {
-		font-family: var(--font-title);
-		font-size: 1.25rem;
-		color: #fff;
-		text-decoration: none;
-		letter-spacing: 0.02em;
+		padding: 2rem 2.5rem;
 	}
 
 	.links {
 		display: flex;
-		gap: 2rem;
+		justify-content: space-between;
+		flex: 1;
+		gap: 1.5rem;
 	}
 
 	.links a {
