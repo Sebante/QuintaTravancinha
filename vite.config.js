@@ -17,6 +17,11 @@ export default defineConfig({
 				// Nav links point to pages that don't exist yet — we're building
 				// the site incrementally, one page at a time.
 				handleHttpError: 'warn'
+			},
+			paths: {
+				// Set to '/<repo-name>' only for the GitHub Pages preview build;
+				// stays empty for Vercel and other root-path deployments.
+				base: process.env.BASE_PATH ?? ''
 			}
 		})
 	]

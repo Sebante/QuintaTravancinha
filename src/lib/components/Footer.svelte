@@ -1,4 +1,6 @@
 <script>
+	import { base } from '$app/paths';
+
 	const links = [
 		{ href: '/about-us', label: 'About us' },
 		{ href: '/our-mission', label: 'Our mission' },
@@ -18,7 +20,7 @@
 
 		<nav class="links">
 			{#each links as link (link.href)}
-				<a href={link.href}>{link.label}</a>
+				<a href={base + link.href}>{link.label}</a>
 			{/each}
 		</nav>
 

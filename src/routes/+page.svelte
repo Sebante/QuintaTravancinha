@@ -1,4 +1,5 @@
 <script>
+	import { base } from '$app/paths';
 	import Hero from '$lib/components/Hero.svelte';
 
 	let { data } = $props();
@@ -25,7 +26,7 @@
 			<article class="card">
 				<h3>{card.title}</h3>
 				<p>{card.text}</p>
-				<a class="cta" href={card.href}>{card.cta} &rarr;</a>
+				<a class="cta" href={base + card.href}>{card.cta} &rarr;</a>
 			</article>
 		{/each}
 	</div>
