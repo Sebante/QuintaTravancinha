@@ -49,7 +49,7 @@
 		display: flex;
 		align-items: center;
 		justify-content: flex-end;
-		padding: clamp(1.75rem, 3.5vw, 3.25rem) clamp(1.5rem, 4.7vw, 5.25rem);
+		padding: clamp(0.875rem, 3.5vw, 1.625rem) clamp(0.75rem, 4.7vw, 2.625rem);
 	}
 
 	.links {
@@ -61,7 +61,7 @@
 
 	.links a {
 		font-family: var(--font-extra);
-		font-size: clamp(1rem, 1.1vw, 1.3rem);
+		font-size: clamp(0.5rem, 1.1vw, 0.65rem);
 		letter-spacing: 0.01em;
 		color: #fff;
 		text-decoration: none;
@@ -114,6 +114,7 @@
 
 		.links a {
 			padding: 1rem 2rem;
+			font-size: 1rem;
 			opacity: 1;
 		}
 	}

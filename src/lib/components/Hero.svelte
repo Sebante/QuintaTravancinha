@@ -66,16 +66,16 @@
 
 	.hero-content h1 {
 		font-family: var(--font-title);
-		font-size: clamp(2rem, 4.75vw, 3.8rem);
+		font-size: clamp(1rem, 4.75vw, 1.9rem);
 		font-weight: 700;
 		color: #fff;
-		margin: 0 0 0.5rem;
+		margin: 0 0 0.25rem;
 		letter-spacing: 0.01em;
 	}
 
 	.subtitle {
 		font-family: var(--font-text);
-		font-size: clamp(1.25rem, 2.3vw, 2.75rem);
+		font-size: clamp(0.625rem, 2.3vw, 1.375rem);
 		font-weight: 400;
 		color: #fff;
 		margin: 0;
