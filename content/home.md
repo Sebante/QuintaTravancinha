@@ -1,7 +1,7 @@
 ---
 title: "Quinta Travancinha"
 subtitle: "An intentional community in Portugal"
-heroImage: "/images/home-hero.jpg"
+heroImage: "src/lib/assets/home-hero.jpg"
 introHeading: "Welcome to the quinta"
 cards:
   - title: "Volunteer"

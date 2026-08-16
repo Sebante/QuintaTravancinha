@@ -1,9 +1,16 @@
 <script>
+	import heroImage from '$lib/assets/home-hero.jpg?enhanced';
+
 	let { title, subtitle } = $props();
 </script>
 
 <section class="hero">
-	<div class="hero-photo" aria-hidden="true"></div>
+	<enhanced:img
+		src={heroImage}
+		alt="Quinta Travancinha farmhouse buildings set among granite rock and countryside"
+		class="hero-photo"
+		fetchpriority="high"
+	/>
 	<div class="hero-scrim" aria-hidden="true"></div>
 
 	<div class="hero-content">
@@ -35,13 +42,12 @@
 		overflow: hidden;
 	}
 
-	/* Placeholder for the full-bleed quinta photograph — swap for a real
-	   photo (e.g. an <enhanced:img> of the farmhouse) once available. */
-	.hero-photo {
+	.hero :global(.hero-photo) {
 		position: absolute;
 		inset: 0;
-		background:
-			linear-gradient(180deg, #8fb3d9 0%, #cfe0e8 38%, var(--color-light-green) 60%, var(--color-dark-green) 100%);
+		width: 100%;
+		height: 100%;
+		object-fit: cover;
 	}
 
 	.hero-scrim {
