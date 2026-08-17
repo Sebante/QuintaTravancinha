@@ -23,7 +23,7 @@
 			{/each}
 		</nav>
 
-		<p class="meta">&copy; {year} Quinta Travancinha &middot; [address]</p>
+		<p class="meta">&copy; {year} Quinta Travancinha</p>
 	</div>
 </footer>
 
