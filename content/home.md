@@ -21,6 +21,6 @@ cards:
     image: "residency"
 ---
 
-Quinta Travancinha is an intentional community quietly planning to restore the surrounding nature,
-set on a quiet piece of Portuguese countryside. We live, work, and grow together — tending the land,
+Quinta Travancinha is an intentional community quietly restoring the surrounding nature in the
+foothills of the Serra da Estrella mountains. We live, work, and grow together — tending the land,
 sharing meals, and building a home that's open to newcomers.
