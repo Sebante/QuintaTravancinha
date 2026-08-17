@@ -1,6 +1,15 @@
 <script>
 	import { base } from '$app/paths';
 	import Hero from '$lib/components/Hero.svelte';
+	import volunteerImage from '$lib/assets/volunteer.jpg?enhanced';
+	import guestsImage from '$lib/assets/guests.jpg?enhanced';
+	import residencyImage from '$lib/assets/residency.jpg?enhanced';
+
+	const cardImages = {
+		volunteer: volunteerImage,
+		guests: guestsImage,
+		residency: residencyImage
+	};
 
 	let { data } = $props();
 </script>
@@ -24,9 +33,18 @@
 	<div class="cards-inner">
 		{#each data.cards as card (card.href)}
 			<article class="card">
-				<h3>{card.title}</h3>
-				<p>{card.text}</p>
-				<a class="cta" href={base + card.href}>{card.cta} &rarr;</a>
+				<div class="card-photo-wrap">
+					<enhanced:img
+						src={cardImages[card.image]}
+						alt=""
+						class="card-photo"
+					/>
+				</div>
+				<div class="card-body">
+					<h3>{card.title}</h3>
+					<p>{card.text}</p>
+					<a class="cta" href={base + card.href}>{card.cta} &rarr;</a>
+				</div>
 			</article>
 		{/each}
 	</div>
@@ -68,11 +86,41 @@
 	}
 
 	.card {
+		display: flex;
+		flex-direction: column;
 		background: #fff;
 		border: 1px solid var(--color-light-green);
 		border-radius: 4px;
-		padding: 2.5rem 2rem;
+		overflow: hidden;
 		text-align: center;
+	}
+
+	.card-photo-wrap {
+		position: relative;
+		width: 100%;
+		aspect-ratio: 4 / 3;
+		overflow: hidden;
+	}
+
+	.card-photo-wrap :global(picture) {
+		position: absolute;
+		inset: 0;
+	}
+
+	.card-photo-wrap :global(.card-photo) {
+		position: absolute;
+		inset: 0;
+		width: 100%;
+		height: 100%;
+		object-fit: cover;
+		display: block;
+	}
+
+	.card-body {
+		display: flex;
+		flex-direction: column;
+		flex: 1;
+		padding: 2rem 2rem 2.25rem;
 	}
 
 	.card h3 {
@@ -94,6 +142,7 @@
 		color: var(--color-dark-green);
 		text-decoration: none;
 		font-weight: 600;
+		margin-top: auto;
 	}
 
 	.cta:hover {

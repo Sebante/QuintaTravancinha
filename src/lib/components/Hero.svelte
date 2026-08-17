@@ -75,7 +75,7 @@
 
 	.subtitle {
 		font-family: var(--font-text);
-		font-size: clamp(0.625rem, 2.3vw, 1.375rem);
+		font-size: clamp(0.55rem, 2vw, 1.2rem);
 		font-weight: 400;
 		color: #fff;
 		margin: 0;

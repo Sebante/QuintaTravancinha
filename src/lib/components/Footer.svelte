@@ -3,11 +3,10 @@
 
 	const links = [
 		{ href: '/about-us', label: 'About us' },
-		{ href: '/our-mission', label: 'Our mission' },
 		{ href: '/the-place', label: 'The place' },
 		{ href: '/volunteer', label: 'Volunteer' },
 		{ href: '/guests', label: 'Guests' },
-		{ href: '/events', label: 'Events' },
+		{ href: '/residency', label: 'Residency' },
 		{ href: '/contact', label: 'Contact' }
 	];
 

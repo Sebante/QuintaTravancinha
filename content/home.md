@@ -5,20 +5,22 @@ heroImage: "src/lib/assets/home-hero.jpg"
 introHeading: "Welcome to the quinta"
 cards:
   - title: "Volunteer"
-    text: "[Placeholder] Lend a hand with the land, the buildings, or daily community life in exchange for room, board, and a slower pace."
+    text: "Lend a hand with the land, the buildings, or daily community life in exchange for room, half-board, and a slower pace."
     href: "/volunteer"
     cta: "Learn more"
+    image: "volunteer"
   - title: "Visit as a guest"
-    text: "[Placeholder] Stay with us for a few days or longer, and experience quinta life first-hand."
+    text: "Digital nomads and people fancying a retreat can stay as a paid guest, receiving all benefits."
     href: "/guests"
     cta: "Learn more"
-  - title: "Events"
-    text: "[Placeholder] Join us for gatherings, workshops, and seasonal celebrations throughout the year."
-    href: "/events"
-    cta: "See what's on"
+    image: "guests"
+  - title: "Residency"
+    text: "After a total of 6 months of staying at the Quinta, guests or volunteers can begin a path for residency."
+    href: "/residency"
+    cta: "Learn more"
+    image: "residency"
 ---
 
-[Placeholder copy] Quinta Travancinha is an intentional community set on a quiet piece of Portuguese
-countryside. We live, work, and grow together — tending the land, sharing meals, and building a home
-that's open to newcomers. This is placeholder copy and should be replaced with the real introduction
-once it's ready.
+Quinta Travancinha is an intentional community quietly planning to restore the surrounding nature,
+set on a quiet piece of Portuguese countryside. We live, work, and grow together — tending the land,
+sharing meals, and building a home that's open to newcomers.
