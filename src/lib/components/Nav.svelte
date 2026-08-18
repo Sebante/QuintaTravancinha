@@ -84,7 +84,7 @@
 
 	.links a {
 		font-family: var(--font-extra);
-		font-size: clamp(0.5rem, 1.1vw, 0.65rem);
+		font-size: clamp(0.65rem, 1.3vw, 0.85rem);
 		letter-spacing: 0.01em;
 		color: #fff;
 		text-decoration: none;
