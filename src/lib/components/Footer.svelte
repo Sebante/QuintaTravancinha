@@ -1,5 +1,6 @@
 <script>
 	import { base } from '$app/paths';
+	import logo from '$lib/assets/logo-white.png?enhanced';
 
 	const links = [
 		{ href: '/about-us', label: 'About us' },
@@ -15,6 +16,9 @@
 
 <footer class="footer">
 	<div class="footer-inner">
+		<a class="logo-link" href={base + '/'} aria-label="Quinta Travancinha home">
+			<enhanced:img src={logo} alt="" class="logo-img" />
+		</a>
 		<p class="brand">Quinta Travancinha</p>
 
 		<nav class="links">
@@ -38,6 +42,27 @@
 		max-width: 1200px;
 		margin: 0 auto;
 		text-align: center;
+	}
+
+	.logo-link {
+		display: block;
+		width: 3.5rem;
+		height: 3.5rem;
+		margin: 0 auto 1rem;
+	}
+
+	.logo-link :global(picture) {
+		position: relative;
+		display: block;
+		width: 100%;
+		height: 100%;
+	}
+
+	.logo-link :global(.logo-img) {
+		width: 100%;
+		height: 100%;
+		object-fit: contain;
+		display: block;
 	}
 
 	.brand {

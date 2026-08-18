@@ -1,5 +1,6 @@
 <script>
 	import { base } from '$app/paths';
+	import logo from '$lib/assets/logo-white.png?enhanced';
 
 	const links = [
 		{ href: '/about-us', label: 'About us' },
@@ -15,6 +16,10 @@
 
 <header class="nav">
 	<div class="nav-inner">
+		<a class="logo-link" href={base + '/'} aria-label="Quinta Travancinha home">
+			<enhanced:img src={logo} alt="" class="logo-img" />
+		</a>
+
 		<button
 			class="menu-toggle"
 			aria-expanded={open}
@@ -47,8 +52,30 @@
 	.nav-inner {
 		display: flex;
 		align-items: center;
-		justify-content: flex-end;
+		justify-content: space-between;
+		gap: 1.5rem;
 		padding: clamp(0.875rem, 3.5vw, 1.625rem) clamp(0.75rem, 4.7vw, 2.625rem);
+	}
+
+	.logo-link {
+		flex-shrink: 0;
+		display: block;
+		width: clamp(2rem, 4vw, 2.75rem);
+		height: clamp(2rem, 4vw, 2.75rem);
+	}
+
+	.logo-link :global(picture) {
+		position: relative;
+		display: block;
+		width: 100%;
+		height: 100%;
+	}
+
+	.logo-link :global(.logo-img) {
+		width: 100%;
+		height: 100%;
+		object-fit: contain;
+		display: block;
 	}
 
 	.links {
