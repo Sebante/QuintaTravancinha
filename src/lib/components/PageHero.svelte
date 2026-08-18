@@ -1,11 +1,14 @@
 <script>
-	let { title } = $props();
+	let { title, image, imageAlt = '' } = $props();
 </script>
 
 <section class="page-hero">
-	<!-- Placeholder gradient — swap for a real photo (e.g. an <enhanced:img>)
-	     once one is available for this page. -->
-	<div class="page-hero-bg" aria-hidden="true"></div>
+	{#if image}
+		<enhanced:img src={image} alt={imageAlt} class="page-hero-photo" fetchpriority="high" />
+	{:else}
+		<!-- Placeholder gradient — swap for a real photo once one is available for this page. -->
+		<div class="page-hero-bg" aria-hidden="true"></div>
+	{/if}
 	<div class="scrim" aria-hidden="true"></div>
 
 	<h1>{title}</h1>
@@ -25,6 +28,14 @@
 		position: absolute;
 		inset: 0;
 		background: linear-gradient(135deg, var(--color-dark-green) 0%, var(--color-dark-brown) 100%);
+	}
+
+	.page-hero :global(.page-hero-photo) {
+		position: absolute;
+		inset: 0;
+		width: 100%;
+		height: 100%;
+		object-fit: cover;
 	}
 
 	.scrim {

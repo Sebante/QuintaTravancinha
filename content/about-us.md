@@ -11,6 +11,8 @@ team:
     image: "jos"
   - name: "Klaske"
     image: "klaske"
+  - name: "Niek"
+    image: "niek"
   - name: "Richie"
     image: "richie"
   - name: "Seb"
