@@ -35,12 +35,16 @@
 	</div>
 </section>
 
-<figure class="group-photo">
-	<enhanced:img src={groupPhoto} alt="The Quinta Travancinha community together" class="group-photo-img" />
-</figure>
-
 <section class="community-section">
 	<div class="community-inner">
+		<figure class="group-photo">
+			<enhanced:img
+				src={groupPhoto}
+				alt="The Quinta Travancinha community together"
+				class="group-photo-img"
+			/>
+		</figure>
+
 		<h2>Meet the Community</h2>
 
 		<div class="avatars">
@@ -94,14 +98,14 @@
 	}
 
 	.group-photo {
-		margin: 0;
+		margin: 0 0 4rem;
 		line-height: 0;
 	}
 
 	.group-photo :global(.group-photo-img) {
 		width: 100%;
-		max-height: 32rem;
-		object-fit: cover;
+		height: auto;
+		border-radius: 12px;
 		display: block;
 	}
 

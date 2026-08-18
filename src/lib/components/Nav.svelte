@@ -79,10 +79,7 @@
 	}
 
 	.links {
-		display: flex;
-		justify-content: space-between;
-		flex: 1;
-		gap: 1.5rem;
+		display: contents;
 	}
 
 	.links a {
@@ -122,6 +119,7 @@
 		}
 
 		.links {
+			display: flex;
 			position: absolute;
 			top: 100%;
 			left: 0;
