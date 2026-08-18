@@ -123,7 +123,8 @@
 	}
 
 	.group-photo {
-		margin: 0 0 4rem;
+		max-width: 42rem;
+		margin: 0 auto 4rem;
 		line-height: 0;
 	}
 
