@@ -156,22 +156,28 @@
 
 	.floating-avatar {
 		position: absolute;
-		width: 6.5rem;
+		width: 8rem;
 		text-align: center;
 	}
 
+	/* Centers the avatar within the margin band between the text column
+	   and the edge of .prose-wrap, rather than pinning it to the outer
+	   edge. Derived from: prose-inner is 42rem wide, centered in
+	   .prose-wrap, so its edge sits at 50% - 21rem; the margin band runs
+	   from there to the wrap's own edge, and this centers an 8rem-wide
+	   avatar within that band. */
 	.floating-avatar.side-left {
-		left: 0;
+		left: calc(25% - 14.5rem);
 	}
 
 	.floating-avatar.side-right {
-		right: 0;
+		right: calc(25% - 14.5rem);
 	}
 
 	.avatar-photo {
 		position: relative;
-		width: 6.5rem;
-		height: 6.5rem;
+		width: 8rem;
+		height: 8rem;
 		border-radius: 50%;
 		overflow: hidden;
 		background: var(--color-light-green);
