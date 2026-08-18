@@ -65,8 +65,6 @@
 
 <section class="community-section">
 	<div class="community-inner">
-		<h2>Meet the Community</h2>
-
 		<figure class="group-photo">
 			<enhanced:img
 				src={groupPhoto}
@@ -144,11 +142,6 @@
 		max-width: 64rem;
 		margin: 0 auto;
 		text-align: center;
-	}
-
-	.community-inner h2 {
-		font-size: clamp(1.5rem, 2.5vw, 1.9rem);
-		margin-bottom: 3rem;
 	}
 
 	.avatars-flow {
