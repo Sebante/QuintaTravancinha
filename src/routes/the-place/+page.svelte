@@ -41,7 +41,12 @@
 	<title>{data.title} — Quinta Travancinha</title>
 </svelte:head>
 
-<PageHero title={data.title} image={heroImg} imageAlt="The valley and buildings of Quinta Travancinha, seen from above" />
+<PageHero
+	title={data.title}
+	image={heroImg}
+	imageAlt="The valley and buildings of Quinta Travancinha, seen from above"
+	imagePosition="center 62%"
+/>
 
 <section class="intro-section">
 	<p class="intro">{data.intro}</p>
@@ -109,9 +114,10 @@
 	}
 
 	.featured {
-		margin: 0;
+		max-width: 42rem;
+		margin: 0 auto;
 		background: var(--color-creme);
-		padding: 0 0 4rem;
+		padding: 0 2rem 4rem;
 	}
 
 	.featured-closing {
@@ -120,8 +126,8 @@
 
 	.featured :global(.featured-img) {
 		width: 100%;
-		height: 34rem;
-		object-fit: cover;
+		height: auto;
+		border-radius: 12px;
 		display: block;
 	}
 
@@ -131,7 +137,7 @@
 		letter-spacing: 0.01em;
 		color: var(--color-grey);
 		text-align: center;
-		padding: 1rem 2rem 0;
+		padding: 1rem 0 0;
 	}
 
 	.grid-section {
@@ -195,9 +201,4 @@
 		text-align: left;
 	}
 
-	@media (max-width: 700px) {
-		.featured :global(.featured-img) {
-			height: 22rem;
-		}
-	}
 </style>

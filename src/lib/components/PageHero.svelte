@@ -1,10 +1,16 @@
 <script>
-	let { title, image, imageAlt = '' } = $props();
+	let { title, image, imageAlt = '', imagePosition = '50% 50%' } = $props();
 </script>
 
 <section class="page-hero">
 	{#if image}
-		<enhanced:img src={image} alt={imageAlt} class="page-hero-photo" fetchpriority="high" />
+		<enhanced:img
+			src={image}
+			alt={imageAlt}
+			class="page-hero-photo"
+			fetchpriority="high"
+			style="object-position: {imagePosition};"
+		/>
 	{:else}
 		<!-- Placeholder gradient — swap for a real photo once one is available for this page. -->
 		<div class="page-hero-bg" aria-hidden="true"></div>
