@@ -46,7 +46,16 @@
 	imagePosition="center 62%"
 />
 
+{#if data.intro}
+	<section class="intro-section">
+		<p class="intro-text">{data.intro}</p>
+	</section>
+{/if}
+
 <section class="grid-section grid-section-top">
+	{#if data.houseGrid.caption}
+		<p class="section-caption">{data.houseGrid.caption}</p>
+	{/if}
 	<div class="grid grid-3">
 		{#each data.houseGrid.images as key (key)}
 			<div class="grid-photo">
@@ -57,6 +66,9 @@
 </section>
 
 <figure class="featured">
+	{#if data.featured[0].caption}
+		<figcaption class="featured-caption">{data.featured[0].caption}</figcaption>
+	{/if}
 	<enhanced:img src={images[data.featured[0].image]} alt="" class="featured-img" />
 </figure>
 
@@ -87,10 +99,35 @@
 </section>
 
 <figure class="featured featured-closing">
+	{#if data.featured[2].caption}
+		<figcaption class="featured-caption">{data.featured[2].caption}</figcaption>
+	{/if}
 	<enhanced:img src={images[data.featured[2].image]} alt="" class="featured-img" />
 </figure>
 
 <style>
+	.intro-section {
+		padding: 5rem 2rem 1rem;
+		background: var(--color-creme);
+		text-align: center;
+	}
+
+	.intro-text {
+		max-width: 38rem;
+		margin: 0 auto;
+		color: var(--color-dark-brown);
+		font-size: 1.1rem;
+		line-height: 1.65;
+	}
+
+	.section-caption {
+		max-width: 34rem;
+		margin: 0 auto 2rem;
+		color: var(--color-grey);
+		font-size: 1rem;
+		text-align: center;
+	}
+
 	.featured {
 		max-width: 42rem;
 		margin: 0 auto;
@@ -100,6 +137,13 @@
 
 	.featured-closing {
 		padding-bottom: 5rem;
+	}
+
+	.featured-caption {
+		color: var(--color-grey);
+		font-size: 1rem;
+		text-align: center;
+		margin: 0 0 1.25rem;
 	}
 
 	.featured :global(.featured-img) {
@@ -115,7 +159,7 @@
 	}
 
 	.grid-section-top {
-		padding-top: 5rem;
+		padding-top: 3rem;
 	}
 
 	.grid {
