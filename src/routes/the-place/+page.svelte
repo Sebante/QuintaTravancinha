@@ -4,7 +4,6 @@
 	import heroImg from '$lib/assets/the-place/hero.jpg?enhanced';
 	import rockImg from '$lib/assets/the-place/rock.jpg?enhanced';
 	import poolImg from '$lib/assets/the-place/pool.jpg?enhanced';
-	import landscapeImg from '$lib/assets/the-place/landscape.jpg?enhanced';
 	import riverImg from '$lib/assets/the-place/river.jpg?enhanced';
 	import riverAdventureImg from '$lib/assets/the-place/river-adventure.jpg?enhanced';
 	import junglePathImg from '$lib/assets/the-place/jungle-path.jpg?enhanced';
@@ -20,7 +19,6 @@
 	const images = {
 		rock: rockImg,
 		pool: poolImg,
-		landscape: landscapeImg,
 		river: riverImg,
 		riverAdventure: riverAdventureImg,
 		junglePath: junglePathImg,
@@ -48,20 +46,25 @@
 	imagePosition="center 62%"
 />
 
-<section class="intro-section">
-	<p class="intro">{data.intro}</p>
+<section class="grid-section grid-section-top">
+	<div class="grid grid-3">
+		{#each data.houseGrid.images as key (key)}
+			<div class="grid-photo">
+				<enhanced:img src={images[key]} alt="" class="grid-img" />
+			</div>
+		{/each}
+	</div>
 </section>
 
 <figure class="featured">
 	<enhanced:img src={images[data.featured[0].image]} alt="" class="featured-img" />
-	<figcaption>{data.featured[0].caption}</figcaption>
 </figure>
 
 <section class="grid-section">
-	<div class="grid">
-		{#each data.grids[0].images as key (key)}
-			<div class="grid-photo">
-				<enhanced:img src={images[key]} alt="" class="grid-img" />
+	<div class="grid grid-3 grid-tall">
+		{#each data.tallGrid.images as key (key)}
+			<div class="tall-photo">
+				<enhanced:img src={images[key]} alt="" class="tall-img" />
 			</div>
 		{/each}
 	</div>
@@ -69,18 +72,7 @@
 
 <figure class="featured">
 	<enhanced:img src={images[data.featured[1].image]} alt="" class="featured-img" />
-	<figcaption>{data.featured[1].caption}</figcaption>
 </figure>
-
-<section class="grid-section">
-	<div class="grid grid-3">
-		{#each data.grids[1].images as key (key)}
-			<div class="grid-photo">
-				<enhanced:img src={images[key]} alt="" class="grid-img" />
-			</div>
-		{/each}
-	</div>
-</section>
 
 <section class="cob-section">
 	<h2>{data.cobHouses.heading}</h2>
@@ -95,24 +87,10 @@
 </section>
 
 <figure class="featured featured-closing">
-	<enhanced:img src={images[data.closing.image]} alt="" class="featured-img" />
-	<figcaption>{data.closing.caption}</figcaption>
+	<enhanced:img src={images[data.featured[2].image]} alt="" class="featured-img" />
 </figure>
 
 <style>
-	.intro-section {
-		padding: 5rem 2rem 4rem;
-		background: var(--color-creme);
-	}
-
-	.intro {
-		max-width: 38rem;
-		margin: 0 auto;
-		text-align: center;
-		font-size: 1.15rem;
-		color: var(--color-dark-brown);
-	}
-
 	.featured {
 		max-width: 42rem;
 		margin: 0 auto;
@@ -131,18 +109,13 @@
 		display: block;
 	}
 
-	.featured figcaption {
-		font-family: var(--font-extra);
-		font-size: 0.9rem;
-		letter-spacing: 0.01em;
-		color: var(--color-grey);
-		text-align: center;
-		padding: 1rem 0 0;
-	}
-
 	.grid-section {
 		padding: 0 2rem 4rem;
 		background: var(--color-creme);
+	}
+
+	.grid-section-top {
+		padding-top: 5rem;
 	}
 
 	.grid {
@@ -179,6 +152,18 @@
 		display: block;
 	}
 
+	/* Portrait photos shown at their full natural height, uncropped. */
+	.tall-photo {
+		border-radius: 8px;
+		overflow: hidden;
+	}
+
+	.tall-photo :global(.tall-img) {
+		width: 100%;
+		height: auto;
+		display: block;
+	}
+
 	.cob-section {
 		padding: 1rem 2rem 5rem;
 		background: #fff;
@@ -200,5 +185,4 @@
 	.cob-section .grid {
 		text-align: left;
 	}
-
 </style>
