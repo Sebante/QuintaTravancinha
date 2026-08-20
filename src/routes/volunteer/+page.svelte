@@ -7,6 +7,8 @@
 	import foodForest2Img from '$lib/assets/volunteer/food-forest-2.jpg?enhanced';
 	import irrigationPipesImg from '$lib/assets/volunteer/irrigation-pipes.jpg?enhanced';
 	import irrigationValveBoxImg from '$lib/assets/volunteer/irrigation-valve-box.jpg?enhanced';
+	import irrigationDiagramImg from '$lib/assets/volunteer/irrigation-diagram.png?enhanced';
+	import irrigationChecklistImg from '$lib/assets/volunteer/irrigation-checklist.png?enhanced';
 	import poolFilledImg from '$lib/assets/volunteer/pool-filled.jpg?enhanced';
 	import poolFiltrationZoneImg from '$lib/assets/volunteer/pool-filtration-zone.jpg?enhanced';
 	import poolSiteImg from '$lib/assets/volunteer/pool-site.jpg?enhanced';
@@ -21,6 +23,8 @@
 		foodForest2: foodForest2Img,
 		irrigationPipes: irrigationPipesImg,
 		irrigationValveBox: irrigationValveBoxImg,
+		irrigationDiagram: irrigationDiagramImg,
+		irrigationChecklist: irrigationChecklistImg,
 		poolFilled: poolFilledImg,
 		poolFiltrationZone: poolFiltrationZoneImg,
 		poolSite: poolSiteImg,
@@ -91,6 +95,16 @@
 					</div>
 				{/each}
 			</div>
+			{#if project.docsNote}
+				<p class="docs-note">{project.docsNote}</p>
+				<div class="docs-grid">
+					{#each project.docsImages as key (key)}
+						<div class="doc-card">
+							<enhanced:img src={images[key]} alt="" class="doc-img" />
+						</div>
+					{/each}
+				</div>
+			{/if}
 		</div>
 	{/each}
 </section>
@@ -238,6 +252,36 @@
 		width: 100%;
 		height: 100%;
 		object-fit: cover;
+		display: block;
+	}
+
+	.docs-note {
+		max-width: 42rem;
+		margin: 2.5rem auto 1.5rem;
+		color: var(--color-grey);
+		font-size: 0.95rem;
+		text-align: center;
+	}
+
+	.docs-grid {
+		max-width: 56rem;
+		margin: 0 auto;
+		display: grid;
+		grid-template-columns: repeat(auto-fit, minmax(16rem, 1fr));
+		gap: 1.25rem;
+	}
+
+	.doc-card {
+		background: #fff;
+		border: 1px solid var(--color-light-green);
+		border-radius: 8px;
+		padding: 0.6rem;
+	}
+
+	.doc-card :global(.doc-img) {
+		width: 100%;
+		height: auto;
+		border-radius: 4px;
 		display: block;
 	}
 

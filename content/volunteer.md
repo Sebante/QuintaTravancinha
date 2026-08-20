@@ -27,6 +27,8 @@ projects:
         - "Last year we planted over 100 fruit and nut trees across 4 lines, and built a fully automatic irrigation system to carry these young trees through the hot summers."
         - "Now we need help keeping the lines clear of weeds — using cardboard and woodchips as borders — and planting the many seedlings from our greenhouse in amongst the trees."
       images: ["foodForest1", "foodForest2", "irrigationValveBox", "irrigationPipes"]
+      docsNote: "A sample of the internal documents we share with volunteers, to help you get up to speed on the irrigation system you'll be working with."
+      docsImages: ["irrigationDiagram", "irrigationChecklist"]
     - name: "Natural Swimming Pool"
       paragraphs:
         - "This year we started turning our existing swimming pool into a fully naturally filtered pool — which means building several new zones for the water to circulate through, using natural materials and plants to keep it clean."
