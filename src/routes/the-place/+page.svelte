@@ -53,9 +53,6 @@
 {/if}
 
 <section class="grid-section grid-section-top">
-	{#if data.houseGrid.caption}
-		<p class="section-caption">{data.houseGrid.caption}</p>
-	{/if}
 	<div class="grid grid-3">
 		{#each data.houseGrid.images as key (key)}
 			<div class="grid-photo">
@@ -63,13 +60,16 @@
 			</div>
 		{/each}
 	</div>
+	{#if data.houseGrid.caption}
+		<p class="section-caption section-caption-below">{data.houseGrid.caption}</p>
+	{/if}
 </section>
 
 <figure class="featured">
-	{#if data.featured[0].caption}
-		<figcaption class="featured-caption">{data.featured[0].caption}</figcaption>
-	{/if}
 	<enhanced:img src={images[data.featured[0].image]} alt="" class="featured-img" />
+	{#if data.featured[0].caption}
+		<figcaption class="featured-caption featured-caption-below">{data.featured[0].caption}</figcaption>
+	{/if}
 </figure>
 
 <section class="grid-section">
@@ -81,10 +81,6 @@
 		{/each}
 	</div>
 </section>
-
-<figure class="featured">
-	<enhanced:img src={images[data.featured[1].image]} alt="" class="featured-img" />
-</figure>
 
 <section class="cob-section">
 	<h2>{data.cobHouses.heading}</h2>
@@ -98,12 +94,19 @@
 	</div>
 </section>
 
-<figure class="featured featured-closing">
+<section class="river-section">
 	{#if data.featured[2].caption}
-		<figcaption class="featured-caption">{data.featured[2].caption}</figcaption>
+		<p class="section-caption river-caption">{data.featured[2].caption}</p>
 	{/if}
-	<enhanced:img src={images[data.featured[2].image]} alt="" class="featured-img" />
-</figure>
+	<div class="grid grid-2">
+		<div class="grid-photo river-photo">
+			<enhanced:img src={images[data.featured[1].image]} alt="" class="grid-img" />
+		</div>
+		<div class="grid-photo river-photo">
+			<enhanced:img src={images[data.featured[2].image]} alt="" class="grid-img" />
+		</div>
+	</div>
+</section>
 
 <style>
 	.intro-section {
@@ -128,6 +131,10 @@
 		text-align: center;
 	}
 
+	.section-caption-below {
+		margin: 2rem auto 0;
+	}
+
 	.featured {
 		max-width: 42rem;
 		margin: 0 auto;
@@ -135,15 +142,15 @@
 		padding: 0 2rem 4rem;
 	}
 
-	.featured-closing {
-		padding-bottom: 5rem;
-	}
-
 	.featured-caption {
 		color: var(--color-grey);
 		font-size: 1rem;
 		text-align: center;
 		margin: 0 0 1.25rem;
+	}
+
+	.featured-caption-below {
+		margin: 1.25rem 0 0;
 	}
 
 	.featured :global(.featured-img) {
@@ -228,5 +235,23 @@
 
 	.cob-section .grid {
 		text-align: left;
+	}
+
+	.river-section {
+		padding: 5rem 2rem 6rem;
+		background: var(--color-creme);
+	}
+
+	.river-caption {
+		margin: 0 auto 2rem;
+	}
+
+	.grid-2 {
+		max-width: 56rem;
+		grid-template-columns: repeat(auto-fit, minmax(18rem, 1fr));
+	}
+
+	.river-photo {
+		aspect-ratio: 3 / 2;
 	}
 </style>
