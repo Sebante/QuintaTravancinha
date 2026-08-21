@@ -1,6 +1,5 @@
 ---
 title: "Volunteer"
-intro: "Come and put your hands in the soil, learn to build with earth, and live for a while as part of our community."
 offerPhotos: ["communityMeal", "polytunnel", "volunteerWork"]
 lookingFor:
   heading: "What We're Looking For"

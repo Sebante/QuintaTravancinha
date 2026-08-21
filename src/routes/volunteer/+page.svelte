@@ -73,11 +73,36 @@
 	imageAlt="A newly planted line of fruit and nut trees in the food forest, mulched and ready for summer"
 />
 
-{#if data.intro}
-	<section class="intro-section">
-		<p class="intro-text">{data.intro}</p>
-	</section>
-{/if}
+<section class="projects-section">
+	<h2 class="projects-heading">{data.projects.heading}</h2>
+	{#each data.projects.items as project (project.name)}
+		<div class="project">
+			<div class="project-text">
+				<h3>{project.name}</h3>
+				{#each project.paragraphs as paragraph (paragraph)}
+					<p>{paragraph}</p>
+				{/each}
+			</div>
+			<div class="grid grid-3">
+				{#each project.images as key (key)}
+					<div class="grid-photo">
+						<enhanced:img src={images[key]} alt="" class="grid-img" />
+					</div>
+				{/each}
+			</div>
+			{#if project.docsNote}
+				<p class="docs-note">{project.docsNote}</p>
+				<div class="docs-grid">
+					{#each project.docsImages as key (key)}
+						<div class="doc-card">
+							<enhanced:img src={images[key]} alt="" class="doc-img" />
+						</div>
+					{/each}
+				</div>
+			{/if}
+		</div>
+	{/each}
+</section>
 
 <section class="prose-section">
 	<div class="prose-wrap">
@@ -123,37 +148,6 @@
 	</div>
 </section>
 
-<section class="projects-section">
-	<h2 class="projects-heading">{data.projects.heading}</h2>
-	{#each data.projects.items as project (project.name)}
-		<div class="project">
-			<div class="project-text">
-				<h3>{project.name}</h3>
-				{#each project.paragraphs as paragraph (paragraph)}
-					<p>{paragraph}</p>
-				{/each}
-			</div>
-			<div class="grid grid-3">
-				{#each project.images as key (key)}
-					<div class="grid-photo">
-						<enhanced:img src={images[key]} alt="" class="grid-img" />
-					</div>
-				{/each}
-			</div>
-			{#if project.docsNote}
-				<p class="docs-note">{project.docsNote}</p>
-				<div class="docs-grid">
-					{#each project.docsImages as key (key)}
-						<div class="doc-card">
-							<enhanced:img src={images[key]} alt="" class="doc-img" />
-						</div>
-					{/each}
-				</div>
-			{/if}
-		</div>
-	{/each}
-</section>
-
 <section class="cta-section">
 	<div class="cta-inner">
 		<h2>{data.cta.heading}</h2>
@@ -165,20 +159,6 @@
 </section>
 
 <style>
-	.intro-section {
-		padding: 3.5rem 2rem;
-		background: var(--color-creme);
-		text-align: center;
-	}
-
-	.intro-text {
-		max-width: 38rem;
-		margin: 0 auto;
-		color: var(--color-dark-brown);
-		font-size: 1.1rem;
-		line-height: 1.65;
-	}
-
 	.prose-section {
 		padding: 4rem 2rem;
 		background: #fff;
