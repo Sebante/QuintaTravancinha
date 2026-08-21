@@ -1,6 +1,12 @@
 ---
 title: "Volunteer"
-intro: "Come and put your hands in the soil, learn to build with earth, and live for a while as part of our community. In exchange for your time and energy, we offer a place at our table and a home in nature."
+intro: "Come and put your hands in the soil, learn to build with earth, and live for a while as part of our community."
+offerPhotos: ["communityMeal", "polytunnel", "volunteerWork"]
+lookingFor:
+  heading: "What We're Looking For"
+  paragraphs:
+    - "Someone who can commit <strong>20 hours</strong> a week for at least <strong>three weeks</strong>. Someone who can work in a team or independently, and who communicates well. Someone curious, kind, and ready to grow — not just vegetables, but themselves."
+    - "You don't need to be a Buddhist or a farmer. You need to be honest, open, and willing to show up."
 offer:
   heading: "What We Offer"
   bullets:
@@ -10,15 +16,10 @@ offer:
     - "Experience working across different styles of gardening and construction"
     - "Expert-led training for us and our members, brought in whenever it's needed"
   residency: "There's also the possibility of long-term residency — gaining additional benefits and the right to build a home here. Availability is limited."
-offerPhotos: ["communityMeal", "polytunnel", "volunteerWork"]
-lookingFor:
-  heading: "What We're Looking For"
-  paragraphs:
-    - "Someone who can commit 20 hours a week for at least three weeks. Someone who can work in a team or independently, and who communicates well. Someone curious, kind, and ready to grow — not just vegetables, but themselves."
-    - "You don't need to be a Buddhist or a farmer. You need to be honest, open, and willing to show up."
 wwoof:
-  text: "Have a WWOOF membership? You can view our volunteer advert here."
-  linkText: "wwoof.pt/en/host/58939"
+  heading: "WWOOF Members"
+  text: "Have a WWOOF membership? You can find our full volunteer listing here."
+  linkText: "View our volunteer advert"
   url: "https://wwoof.pt/en/host/58939"
 projects:
   heading: "Our Current Projects"

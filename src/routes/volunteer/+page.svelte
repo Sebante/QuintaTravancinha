@@ -82,6 +82,11 @@
 <section class="prose-section">
 	<div class="prose-wrap">
 		<div class="prose-inner">
+			<h2>{data.lookingFor.heading}</h2>
+			{#each data.lookingFor.paragraphs as paragraph (paragraph)}
+				<p>{@html paragraph}</p>
+			{/each}
+
 			<h2>{data.offer.heading}</h2>
 			<ul>
 				{#each data.offer.bullets as bullet (bullet)}
@@ -90,16 +95,16 @@
 			</ul>
 			<p>{data.offer.residency}</p>
 
-			<h2>{data.lookingFor.heading}</h2>
-			{#each data.lookingFor.paragraphs as paragraph (paragraph)}
-				<p>{paragraph}</p>
-			{/each}
-
 			{#if data.wwoof}
-				<p class="wwoof-note">
-					{data.wwoof.text}
-					<a href={data.wwoof.url} target="_blank" rel="noopener noreferrer">{data.wwoof.linkText}</a>
-				</p>
+				<div class="wwoof-card">
+					{#if data.wwoof.heading}
+						<p class="wwoof-heading">{data.wwoof.heading}</p>
+					{/if}
+					<p class="wwoof-text">{data.wwoof.text}</p>
+					<a class="wwoof-link" href={data.wwoof.url} target="_blank" rel="noopener noreferrer"
+						>{data.wwoof.linkText} &rarr;</a
+					>
+				</div>
 			{/if}
 		</div>
 
@@ -161,7 +166,7 @@
 
 <style>
 	.intro-section {
-		padding: 5rem 2rem;
+		padding: 3.5rem 2rem;
 		background: var(--color-creme);
 		text-align: center;
 	}
@@ -220,14 +225,43 @@
 		line-height: 1.5;
 	}
 
-	.wwoof-note {
-		color: var(--color-grey);
-		font-size: 0.95rem;
+	.wwoof-card {
+		margin-top: 2.5rem;
+		padding: 1.75rem 2rem;
+		background: var(--color-creme);
+		border-left: 4px solid var(--color-dark-green);
+		border-radius: 4px;
 	}
 
-	.wwoof-note a {
+	.wwoof-heading {
+		font-family: var(--font-extra);
+		font-size: 0.8rem;
+		text-transform: uppercase;
+		letter-spacing: 0.05em;
 		color: var(--color-dark-green);
+		font-weight: 700;
+		margin: 0 0 0.5rem;
+	}
+
+	.wwoof-text {
+		color: var(--color-dark-brown);
+		font-size: 1rem;
+		margin: 0 0 0.75rem;
+	}
+
+	.wwoof-link {
+		display: inline-block;
+		font-family: var(--font-extra);
+		font-size: 0.85rem;
+		text-transform: uppercase;
+		letter-spacing: 0.03em;
+		color: var(--color-dark-green);
+		text-decoration: none;
 		font-weight: 600;
+	}
+
+	.wwoof-link:hover {
+		text-decoration: underline;
 	}
 
 	.offer-photos {
