@@ -33,8 +33,8 @@
 			</a>
 		</div>
 
-		<div class="map-wrap">
-			{#if data.mapEmbedUrl}
+		{#if data.mapEmbedUrl}
+			<div class="map-wrap">
 				<iframe
 					class="map-embed"
 					src={data.mapEmbedUrl}
@@ -42,13 +42,21 @@
 					loading="lazy"
 					referrerpolicy="no-referrer-when-downgrade"
 				></iframe>
-			{:else if data.mapsUrl}
-				<a class="map-link" href={data.mapsUrl} target="_blank" rel="noopener noreferrer">
+			</div>
+			{#if data.mapsUrl}
+				<a class="map-directions-link" href={data.mapsUrl} target="_blank" rel="noopener noreferrer">
 					<span class="emoji" aria-hidden="true">📍</span>
 					Get directions on Google Maps
 				</a>
 			{/if}
-		</div>
+		{:else if data.mapsUrl}
+			<div class="map-wrap">
+				<a class="map-link" href={data.mapsUrl} target="_blank" rel="noopener noreferrer">
+					<span class="emoji" aria-hidden="true">📍</span>
+					Get directions on Google Maps
+				</a>
+			</div>
+		{/if}
 	</div>
 </section>
 
@@ -104,6 +112,7 @@
 	.map-wrap {
 		display: flex;
 		justify-content: center;
+		margin-bottom: 1.25rem;
 	}
 
 	.map-embed {
@@ -112,6 +121,21 @@
 		border: 0;
 		border-radius: 8px;
 		box-shadow: 0 4px 18px rgba(52, 31, 17, 0.1);
+	}
+
+	.map-directions-link {
+		display: inline-flex;
+		align-items: center;
+		gap: 0.5rem;
+		color: var(--color-dark-green);
+		font-family: var(--font-extra);
+		font-size: 0.9rem;
+		font-weight: 600;
+		text-decoration: none;
+	}
+
+	.map-directions-link:hover {
+		text-decoration: underline;
 	}
 
 	.map-link {
