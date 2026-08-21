@@ -17,6 +17,21 @@
 	import cobHouse2Img from '$lib/assets/the-place/cob-house-2.jpg?enhanced';
 	import cobHouse3Img from '$lib/assets/the-place/cob-house-3.jpg?enhanced';
 	import cobHouseDetailImg from '$lib/assets/the-place/cob-house-detail.jpg?enhanced';
+	import communityMealImg from '$lib/assets/volunteer/community-meal.jpg?enhanced';
+	import polytunnelImg from '$lib/assets/volunteer/polytunnel.jpg?enhanced';
+	import volunteerWorkImg from '$lib/assets/volunteer/volunteer-work.jpg?enhanced';
+
+	const offerPhotoImages = {
+		communityMeal: communityMealImg,
+		polytunnel: polytunnelImg,
+		volunteerWork: volunteerWorkImg
+	};
+
+	const offerPhotoVariants = {
+		communityMeal: 'landscape',
+		polytunnel: 'landscape',
+		volunteerWork: 'portrait'
+	};
 
 	const images = {
 		foodForest1: foodForest1Img,
@@ -36,6 +51,16 @@
 	};
 
 	let { data } = $props();
+
+	let positionedOfferPhotos = $derived(
+		(data.offerPhotos ?? []).map((key, i) => ({
+			key,
+			variant: offerPhotoVariants[key],
+			side: i % 2 === 0 ? 'right' : 'left',
+			rotate: i % 2 === 0 ? 'a' : 'b',
+			top: 8 + i * 38
+		}))
+	);
 </script>
 
 <svelte:head>
@@ -55,26 +80,41 @@
 {/if}
 
 <section class="prose-section">
-	<div class="prose-inner">
-		<h2>{data.offer.heading}</h2>
-		<ul>
-			{#each data.offer.bullets as bullet (bullet)}
-				<li>{bullet}</li>
+	<div class="prose-wrap">
+		<div class="prose-inner">
+			<h2>{data.offer.heading}</h2>
+			<ul>
+				{#each data.offer.bullets as bullet (bullet)}
+					<li>{bullet}</li>
+				{/each}
+			</ul>
+			<p>{data.offer.residency}</p>
+
+			<h2>{data.lookingFor.heading}</h2>
+			{#each data.lookingFor.paragraphs as paragraph (paragraph)}
+				<p>{paragraph}</p>
 			{/each}
-		</ul>
-		<p>{data.offer.residency}</p>
 
-		<h2>{data.lookingFor.heading}</h2>
-		{#each data.lookingFor.paragraphs as paragraph (paragraph)}
-			<p>{paragraph}</p>
-		{/each}
+			{#if data.wwoof}
+				<p class="wwoof-note">
+					{data.wwoof.text}
+					<a href={data.wwoof.url} target="_blank" rel="noopener noreferrer">{data.wwoof.linkText}</a>
+				</p>
+			{/if}
+		</div>
 
-		{#if data.wwoof}
-			<p class="wwoof-note">
-				{data.wwoof.text}
-				<a href={data.wwoof.url} target="_blank" rel="noopener noreferrer">{data.wwoof.linkText}</a>
-			</p>
-		{/if}
+		<div class="offer-photos">
+			{#each positionedOfferPhotos as photo (photo.key)}
+				<div
+					class="floating-photo side-{photo.side} variant-{photo.variant} rotate-{photo.rotate}"
+					style="top: {photo.top}%"
+				>
+					<div class="photo-frame">
+						<enhanced:img src={offerPhotoImages[photo.key]} alt="" class="offer-photo-img" />
+					</div>
+				</div>
+			{/each}
+		</div>
 	</div>
 </section>
 
@@ -121,7 +161,7 @@
 
 <style>
 	.intro-section {
-		padding: 5rem 2rem 1rem;
+		padding: 5rem 2rem;
 		background: var(--color-creme);
 		text-align: center;
 	}
@@ -139,7 +179,15 @@
 		background: #fff;
 	}
 
+	.prose-wrap {
+		position: relative;
+		max-width: 75rem;
+		margin: 0 auto;
+	}
+
 	.prose-inner {
+		position: relative;
+		z-index: 1;
 		max-width: 42rem;
 		margin: 0 auto;
 	}
@@ -180,6 +228,100 @@
 	.wwoof-note a {
 		color: var(--color-dark-green);
 		font-weight: 600;
+	}
+
+	.offer-photos {
+		display: block;
+	}
+
+	.floating-photo {
+		position: absolute;
+		width: 12rem;
+		background: #fff;
+		padding: 0.5rem;
+		border-radius: 2px;
+		box-shadow: 0 4px 14px rgba(52, 31, 17, 0.18);
+	}
+
+	.floating-photo.variant-portrait {
+		width: 10rem;
+	}
+
+	/* Same margin-band centering formula as the About Us avatars:
+	   prose-inner is 42rem wide, centered in the 75rem .prose-wrap, so
+	   this centers each photo within the space left on either side. */
+	.floating-photo.variant-landscape.side-left {
+		left: calc(25% - 16.5rem);
+	}
+
+	.floating-photo.variant-landscape.side-right {
+		right: calc(25% - 16.5rem);
+	}
+
+	.floating-photo.variant-portrait.side-left {
+		left: calc(25% - 15.5rem);
+	}
+
+	.floating-photo.variant-portrait.side-right {
+		right: calc(25% - 15.5rem);
+	}
+
+	.floating-photo.rotate-a {
+		transform: rotate(-2deg);
+	}
+
+	.floating-photo.rotate-b {
+		transform: rotate(2deg);
+	}
+
+	.photo-frame {
+		position: relative;
+		width: 100%;
+		overflow: hidden;
+	}
+
+	.variant-landscape .photo-frame {
+		aspect-ratio: 4 / 3;
+	}
+
+	.variant-portrait .photo-frame {
+		aspect-ratio: 3 / 4;
+	}
+
+	.photo-frame :global(picture) {
+		position: absolute;
+		inset: 0;
+	}
+
+	.photo-frame :global(.offer-photo-img) {
+		position: absolute;
+		inset: 0;
+		width: 100%;
+		height: 100%;
+		object-fit: cover;
+		display: block;
+	}
+
+	/* Below this width there isn't enough margin beside the text column
+	   to float photos without overlapping it, so they drop into a
+	   centered row underneath the text instead. */
+	@media (max-width: 1150px) {
+		.offer-photos {
+			position: static;
+			display: flex;
+			flex-wrap: wrap;
+			justify-content: center;
+			gap: 1.5rem;
+			margin-top: 3rem;
+		}
+
+		.floating-photo {
+			position: static;
+			top: auto !important;
+			left: auto !important;
+			right: auto !important;
+			transform: none !important;
+		}
 	}
 
 	.projects-section {

@@ -1,6 +1,6 @@
 ---
 title: "Volunteer"
-intro: "Come and put your hands in the soil, learn to build with earth, and live for a while as part of our community. In exchange for your time and energy, we offer a place at our table and a home among the trees."
+intro: "Come and put your hands in the soil, learn to build with earth, and live for a while as part of our community. In exchange for your time and energy, we offer a place at our table and a home in nature."
 offer:
   heading: "What We Offer"
   bullets:
@@ -10,6 +10,7 @@ offer:
     - "Experience working across different styles of gardening and construction"
     - "Expert-led training for us and our members, brought in whenever it's needed"
   residency: "There's also the possibility of long-term residency — gaining additional benefits and the right to build a home here. Availability is limited."
+offerPhotos: ["communityMeal", "polytunnel", "volunteerWork"]
 lookingFor:
   heading: "What We're Looking For"
   paragraphs:
