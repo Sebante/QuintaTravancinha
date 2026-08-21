@@ -6,20 +6,20 @@
 	import anaImg from '$lib/assets/team/ana.jpg?enhanced';
 	import elisabethImg from '$lib/assets/team/elisabeth.jpg?enhanced';
 	import ellyImg from '$lib/assets/team/elly.jpg?enhanced';
+	import hansImg from '$lib/assets/team/hans.jpg?enhanced';
 	import josImg from '$lib/assets/team/jos.jpg?enhanced';
 	import klaskeImg from '$lib/assets/team/klaske.jpg?enhanced';
 	import niekImg from '$lib/assets/team/niek.jpg?enhanced';
-	import richieImg from '$lib/assets/team/richie.jpg?enhanced';
 	import sebImg from '$lib/assets/team/seb.jpg?enhanced';
 
 	const teamImages = {
 		ana: anaImg,
 		elisabeth: elisabethImg,
 		elly: ellyImg,
+		hans: hansImg,
 		jos: josImg,
 		klaske: klaskeImg,
 		niek: niekImg,
-		richie: richieImg,
 		seb: sebImg
 	};
 
